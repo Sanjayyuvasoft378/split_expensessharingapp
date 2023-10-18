@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% block wrapper_class %}{% endblock wrapper_class %}
+{% block page %}
+
+
+
+
+	<div class="jumbotron">
+		<div class="container">
+			<h1>{% trans "IOUs made easy" %}</h1>
+			<p class="visible-phone">{% trans "Keep your shared expenses in check without the paperwork." %}</p>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="span4">
+				<h2 class="page-header">1. Create a new group</h2>
+				<p>Creating a group takes five seconds. Give it a name and you are good to go. You can create as many as you wish.</p>
+			</div>
+			<div class="span4">
+				<h2 class="page-header">2. Invite your roommates</h2>
+				<p>Invite your friends to join your Bill Splitter group, and get them to add their shared expenses.</p>
+			</div>
+			<div class="span4">
+				<h2 class="page-header">3. Don't kill each other</h2>
+				<p>You know who bought what and how much everyone spent. No need to keep receipts or guesstimate IOUs.</p>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="span4">
+				<h2>{% trans "Get started" %}</h2>
+				<p>{% trans "Click the blue button, we'll handle the rest." %}</p>
+				<p class="login-buttons">
+					<a class="btn btn-large btn-primary" href="{% url 'signup' %}{% if request.GET.next %}{% endif %}">{% trans "Create an account" %}</a>
+				</p>
+			</div>
+			<div class="span8 text-center hidden-phone"><img src="{{ STATIC_URL }}/img/front.png"></div>
+		</div>
+	</div>
+{% endblock page %}

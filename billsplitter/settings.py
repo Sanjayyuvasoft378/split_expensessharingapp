@@ -20,7 +20,7 @@ DATABASES['default'] =  dj_database_url.config()
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
 # In a Windows environment this must be set to your system time zone.
-TIME_ZONE = 'America/Montreal'
+TIME_ZONE = 'UTC'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -106,10 +106,10 @@ AUTHENTICATION_BACKENDS = (
     'social_auth.backends.twitter.TwitterBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
-FACEBOOK_APP_ID              = '173700872797179'
-FACEBOOK_API_SECRET          = '5c79b1d95ddcfa6bdd72e2c82596eea6'
-TWITTER_CONSUMER_KEY         = 'VEioMf8iFXq4xhQFuQUpzg'
-TWITTER_CONSUMER_SECRET      = 'x8ECGChH7mCtZGtzW4uthpWd3Dl8xnXFlZWxcTgv6Y'
+FACEBOOK_APP_ID              = ''
+FACEBOOK_API_SECRET          = ''
+TWITTER_CONSUMER_KEY         = ''
+TWITTER_CONSUMER_SECRET      = ''
 
 LOGIN_URL          = '/login/'
 LOGIN_REDIRECT_URL = reverse_lazy('group_list')

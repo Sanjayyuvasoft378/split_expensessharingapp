@@ -31,30 +31,3 @@ class ExpenseForm(forms.ModelForm):
         model = Expense
         exclude = ['group']
 
-
-class RefundForm(forms.ModelForm):
-    """
-    Adds improved photo and date widgets to the form, as well as validation
-    """
-    from_user = UserModelChoiceField(label=_("From"),queryset=User.objects.all(), empty_label=_("Select a person"))
-    to_user = UserModelChoiceField(label=_("To"),queryset=User.objects.all(), empty_label=_("Select a person"))
-    amount = forms.DecimalField(min_value=0, max_digits=7, decimal_places=2)
-
-
-    def __init__(self, *args, **kwargs):
-        users = kwargs.pop('users', None)
-        super(RefundForm, self).__init__(*args, **kwargs)
-
-        if users:
-            self.fields['from_user'].queryset = users
-            self.fields['to_user'].queryset = users
-
-    def clean(self):
-        cleaned_data = super(RefundForm, self).clean()
-        if cleaned_data.get("from_user") == cleaned_data.get("to_user"):
-            raise ValidationError(_("The refund must be made between two different people"))
-        return cleaned_data
-
-    class Meta:
-        model = Refund
-        fields = ['from_user','to_user','amount','description']
